@@ -15,6 +15,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <arachne.version>1.15.0-SNAPSHOT</arachne.version>
     </properties>
 
     <dependencyManagement>
@@ -39,12 +40,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
-        <!-- TODO: reorganize dependencies in ArachneCommons -> remove "arachne-commons" dep from "execution-engine-commons" -->
         <dependency>
-            <groupId>javax.jms</groupId>
-            <artifactId>javax.jms-api</artifactId>
-            <version>2.0.1</version>
+            <groupId>com.odysseusinc.arachne</groupId>
+            <artifactId>arachne-common-utils</artifactId>
+            <version>${arachne.version}</version>
         </dependency>
     </dependencies>
     <build>
