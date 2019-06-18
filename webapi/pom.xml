@@ -81,6 +81,38 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <requiresUnpack>
+                        <dependency>
+                            <groupId>org.ohdsi</groupId>
+                            <artifactId>WebAPI</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ohdsi.webapi</groupId>
+                            <artifactId>criteria-location-distance</artifactId>
+                        </dependency>
+                         <dependency>
+                            <groupId>org.graalvm.sdk</groupId>
+                            <artifactId>graal-sdk</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.graalvm.js</groupId>
+                            <artifactId>js</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.graalvm.js</groupId>
+                            <artifactId>js-scriptengine</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.graalvm.regex</groupId>
+                            <artifactId>regex</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.graalvm.truffle</groupId>
+                            <artifactId>truffle-api</artifactId>
+                        </dependency>
+                    </requiresUnpack>
+                </configuration>
             </plugin>
         </plugins>
     </build>
