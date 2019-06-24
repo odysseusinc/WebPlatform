@@ -47,6 +47,11 @@
                 <artifactId>json</artifactId>
                 <version>20170516</version>
             </dependency>
+            <dependency>
+                <groupId>org.codehaus.jettison</groupId>
+                <artifactId>jettison</artifactId>
+                <version>1.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -91,7 +96,7 @@
                             <groupId>org.ohdsi.webapi</groupId>
                             <artifactId>criteria-location-distance</artifactId>
                         </dependency>
-                         <dependency>
+                        <dependency>
                             <groupId>org.graalvm.sdk</groupId>
                             <artifactId>graal-sdk</artifactId>
                         </dependency>
@@ -116,4 +121,19 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>webapi-netezza</id>
+            <properties>
+                <netezza.enabled>true</netezza.enabled>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.netezza</groupId>
+                    <artifactId>nzjdbc</artifactId>
+                    <version>1.0</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>
