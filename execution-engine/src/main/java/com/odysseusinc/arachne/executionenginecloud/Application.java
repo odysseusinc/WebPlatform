@@ -17,8 +17,8 @@ public class Application {
     public static void main(String[] args) {
 
         // TODO:
-        System.setProperty("server.port", "0");
-        System.setProperty("server.ssl.enabled", "false");
+//        System.setProperty("server.port", "0");
+//        System.setProperty("server.ssl.enabled", "false");
 
         SpringApplication.run(Application.class, args);
     }

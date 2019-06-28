@@ -9,6 +9,17 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <dockerfile.version>1.4.10</dockerfile.version>
+    </properties>
+
     <modules>
         <module>execution-engine</module>
         <module>proxy-svr</module>
