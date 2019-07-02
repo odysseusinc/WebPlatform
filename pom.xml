@@ -25,6 +25,7 @@
         <module>proxy-svr</module>
         <module>service-discovery-svr</module>
         <module>webapi</module>
+        <module>atlas-ui</module>
     </modules>
 
 </project>

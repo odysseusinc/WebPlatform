@@ -1,4 +1,4 @@
-FROM openjdk:8u212-jdk
+FROM odysseusinc/r-env:1.0.7
 MAINTAINER vitaly.koulakov@odysseusinc.com
 
 RUN mkdir /usr/share/execution-engine

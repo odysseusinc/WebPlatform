@@ -2,8 +2,8 @@ version: '3'
 services:
   eureka:
     image: odysseusinc/service-discovery-svr:0.0.1-SNAPSHOT
-    expose:
-      - "8761"
+    ports:
+      - "8761:8761"
     env_file:
       - ./common.env
       - ./service-discovery-svr/common.env
@@ -12,7 +12,7 @@ services:
   proxy:
     image: odysseusinc/proxy-svr:0.0.1-SNAPSHOT
     ports:
-      - "5555"
+      - "5555:5555"
     env_file:
       - ./common.env
     depends_on:
@@ -43,5 +43,31 @@ services:
       - "postgres:${POSTGRES_IP}"
     networks:
       - services
+  gis-service:
+    image: odysseusinc/gisservice:0.0.1-SNAPSHOT
+    env_file:
+      - ./common.env
+      - ./gis-service/dev.env
+    depends_on:
+      - eureka
+      - proxy
+    extra_hosts:
+      - "postgres:${POSTGRES_IP}"
+    networks:
+      - services
+  gis-service-ui:
+    image: odysseusinc/gisservice-ui:0.0.1-SNAPSHOT
+    ports:
+      - "8081:80"
+    networks:
+      - frontend
+  atlas-ui:
+    image: odysseusinc/atlas-ui:2.7.2-SNAPSHOT
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+      - services
 networks:
   services:
+  frontend:
