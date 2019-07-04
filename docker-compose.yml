@@ -21,30 +21,18 @@ services:
       - proxy
     networks:
       - services
-    extra_hosts:
-      - "postgres:${POSTGRES_IP}"
   webapi:
     image: odysseusinc/webapicloud:2.7.2-SNAPSHOT
-    env_file:
-      - ./common.env
-      - ./webapi/dev.env
     depends_on:
       - eureka
       - proxy
-    extra_hosts:
-      - "postgres:${POSTGRES_IP}"
     networks:
       - services
   gis-service:
     image: odysseusinc/gisservice:0.0.1-SNAPSHOT
-    env_file:
-      - ./common.env
-      - ./gis-service/dev.env
     depends_on:
       - eureka
       - proxy
-    extra_hosts:
-      - "postgres:${POSTGRES_IP}"
     networks:
       - services
   gis-service-ui:

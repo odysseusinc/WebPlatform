@@ -10,3 +10,17 @@ services:
     env_file:
       - ./common.env
       - ./execution-engine/dev.env
+    extra_hosts:
+      - "postgres:${POSTGRES_IP}"
+  webapi:
+    env_file:
+      - ./common.env
+      - ./webapi/dev.env
+    extra_hosts:
+      - "postgres:${POSTGRES_IP}"
+  gis-service:
+    env_file:
+      - ./common.env
+      - ./gis-service/dev.env
+    extra_hosts:
+      - "postgres:${POSTGRES_IP}"
