@@ -4,26 +4,18 @@ services:
     image: odysseusinc/service-discovery-svr:0.0.1-SNAPSHOT
     ports:
       - "8761:8761"
-    env_file:
-      - ./common.env
-      - ./service-discovery-svr/common.env
     networks:
       - services
   proxy:
     image: odysseusinc/proxy-svr:0.0.1-SNAPSHOT
     ports:
       - "5555:5555"
-    env_file:
-      - ./common.env
     depends_on:
       - eureka
     networks:
       - services
   execution-engine:
     image: odysseusinc/execution-engine-cloud:1.15.0-SNAPSHOT
-    env_file:
-      - ./common.env
-      - ./execution-engine/dev.env
     depends_on:
       - eureka
       - proxy

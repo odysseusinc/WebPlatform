@@ -1,0 +1,12 @@
+services:
+  eureka:
+    env_file:
+      - ./common.env
+      - ./service-discovery-svr/common.env
+  proxy:
+    env_file:
+      - ./common.env
+  execution-engine:
+    env_file:
+      - ./common.env
+      - ./execution-engine/dev.env
