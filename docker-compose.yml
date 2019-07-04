@@ -20,7 +20,7 @@ services:
     networks:
       - services
   execution-engine:
-    image: odysseusinc/execution-engine-cloud:1.4.0-SNAPSHOT
+    image: odysseusinc/execution-engine-cloud:1.15.0-SNAPSHOT
     env_file:
       - ./common.env
       - ./execution-engine/dev.env
