@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: webapi
+  profiles:
+    active: default, webapi-postgresql
   aop:
     proxy-target-class: true
 

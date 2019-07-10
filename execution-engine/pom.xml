@@ -2,20 +2,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.odysseusinc.arachne</groupId>
-    <artifactId>execution-engine-cloud</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.odysseusinc.arachne</groupId>
+        <artifactId>web-platform</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <artifactId>execution-engine-cloud</artifactId>
+    <version>1.15.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
         <arachne.version>1.15.0-SNAPSHOT</arachne.version>
+        <netezza.driver.path>src/drivers/README.md</netezza.driver.path>
     </properties>
 
     <dependencyManagement>
@@ -40,17 +41,35 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.odysseusinc.arachne</groupId>
-            <artifactId>arachne-common-utils</artifactId>
-            <version>${arachne.version}</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>odysseusinc/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                        <NETEZZA_JDBC>${netezza.driver.path}</NETEZZA_JDBC>
+                    </buildArgs>
+                    <skip>${dockerfile.skip}</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>

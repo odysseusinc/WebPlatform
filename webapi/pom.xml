@@ -9,6 +9,7 @@
     <properties>
         <spring.boot.version>1.5.20.RELEASE</spring.boot.version>
         <java.version>1.8</java.version>
+        <dockerfile.version>1.4.10</dockerfile.version>
     </properties>
 
     <dependencyManagement>
@@ -117,6 +118,28 @@
                             <artifactId>truffle-api</artifactId>
                         </dependency>
                     </requiresUnpack>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>odysseusinc/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                    <skip>${dockerfile.skip}</skip>
                 </configuration>
             </plugin>
         </plugins>

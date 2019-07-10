@@ -12,13 +12,17 @@ import org.springframework.context.annotation.PropertySource;
                 "com.odysseusinc.arachne.executionengine"
         }
 )
+/**
+ * Note: When using default profile it's required to externalize properties needed to be overriden defaults
+ *  inherited from execution-engine dependency. At least <b>server.port</b> and <b>server.ssl.enabled</b>
+ *  should be overriden directly by command line arguments or with additional config location.
+ *  This is beacause spring determines properties loading order and external properties has prevalence over
+ *  default application properties.
+ *  Not a problem when running in docker container since docker externalize properties with environment variables.
+ */
 public class Application {
 
     public static void main(String[] args) {
-
-        // TODO:
-        System.setProperty("server.port", "0");
-        System.setProperty("server.ssl.enabled", "false");
 
         SpringApplication.run(Application.class, args);
     }

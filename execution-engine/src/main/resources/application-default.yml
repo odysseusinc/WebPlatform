@@ -1,5 +1,5 @@
 server:
-  port: 0 # TODO: it is ignored, needs to be fixed
+  port: 0
   ssl:
     enabled: true
 

@@ -1,0 +1,53 @@
+version: '3'
+services:
+  eureka:
+    image: odysseusinc/service-discovery-svr:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    networks:
+      - services
+  proxy:
+    image: odysseusinc/proxy-svr:0.0.1-SNAPSHOT
+    ports:
+      - "5555:5555"
+    depends_on:
+      - eureka
+    networks:
+      - services
+  execution-engine:
+    image: odysseusinc/execution-engine-cloud:1.15.0-SNAPSHOT
+    depends_on:
+      - eureka
+      - proxy
+    networks:
+      - services
+  webapi:
+    image: odysseusinc/webapicloud:2.7.2-SNAPSHOT
+    depends_on:
+      - eureka
+      - proxy
+    networks:
+      - services
+  gis-service:
+    image: odysseusinc/gisservice:0.0.1-SNAPSHOT
+    depends_on:
+      - eureka
+      - proxy
+    networks:
+      - services
+  gis-service-ui:
+    image: odysseusinc/gisservice-ui:0.0.1-SNAPSHOT
+    ports:
+      - "8081:80"
+    networks:
+      - frontend
+  atlas-ui:
+    image: odysseusinc/atlas-ui:2.7.2-SNAPSHOT
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+      - services
+networks:
+  services:
+  frontend:
