@@ -7,6 +7,10 @@ spring:
   cloud:
     config:
       enabled: true
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
 
 server:
   port: 5555
