@@ -40,7 +40,7 @@ management:
 zuul:
   sensitiveHeaders: Cookie,Set-Cookie
 
-ribbon.ReadTimeout: 600000
+ribbon.ReadTimeout: 60000
 
 hystrix:
   command:
@@ -48,4 +48,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 600000
+            timeoutInMilliseconds: 60000

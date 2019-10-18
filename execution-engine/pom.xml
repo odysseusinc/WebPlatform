@@ -391,12 +391,6 @@
         </profile>
         <profile>
             <id>hive</id>
-            <properties>
-                <hive.enabled>true</hive.enabled>
-                <hive.version>3.1.0</hive.version>
-                <!-- Hive JDBC driver path -->
-                <hive.classpath>/hive</hive.classpath>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.hive</groupId>
@@ -410,31 +404,6 @@
                     </exclusions>
                 </dependency>
             </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-install-plugin</artifactId>
-                        <version>2.5.2</version>
-                        <executions>
-                            <execution>
-                                <id>hive-jdbc</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>install-file</goal>
-                                </goals>
-                                <configuration>
-                                    <groupId>org.apache.hive</groupId>
-                                    <artifactId>hive-jdbc</artifactId>
-                                    <version>${hive.version}</version>
-                                    <packaging>jar</packaging>
-                                    <file>${hive.classpath}/hive-jdbc-${hive.version}.jar</file>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 
