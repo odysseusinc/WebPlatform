@@ -9,7 +9,7 @@
     <version>2.7.3-SNAPSHOT</version>
 
     <properties>
-        <frontendBranch>issue-1168-hive-adding-support</frontendBranch>
+        <frontendBranch>bcbssc</frontendBranch>
         <dockerfile.version>1.4.10</dockerfile.version>
     </properties>
 
@@ -141,6 +141,7 @@
                 <configuration>
                     <repository>odysseusinc/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
+                    <tag>hive_gs</tag>
                     <skip>${dockerfile.skip}</skip>
                 </configuration>
             </plugin>
