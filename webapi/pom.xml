@@ -136,6 +136,7 @@
                 <configuration>
                     <repository>odysseusinc/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
+                    <tag>hive_gs</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
