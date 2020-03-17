@@ -15,7 +15,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <arachne.version>1.15.0-SNAPSHOT</arachne.version>
+        <arachne.version>1.16.0-SNAPSHOT</arachne.version>
         <netezza.driver.path>src/drivers/README.md</netezza.driver.path>
         <hive.driver.path>src/drivers/hive</hive.driver.path>
     </properties>
