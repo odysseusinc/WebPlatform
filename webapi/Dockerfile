@@ -1,4 +1,4 @@
-FROM odysseusinc/r-env:1.0.12-hive_gs
+FROM odysseusinc/r-env:1.0.12
 MAINTAINER vitaly.koulakov@odysseusinc.com
 
 RUN mkdir /usr/share/webapi
