@@ -1,4 +1,4 @@
-FROM nginx:1.17.1
+FROM nginx:1.21.1
 MAINTAINER vitaly.koulakov@odysseusinc.com
 
 RUN apt-get -q update && DEBIAN_FRONTEND=noninteractive apt-get -yq install unzip
