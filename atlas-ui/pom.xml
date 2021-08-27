@@ -9,7 +9,7 @@
     <version>2.7.3-SNAPSHOT</version>
 
     <properties>
-        <frontendBranch>bcbssc</frontendBranch>
+        <frontendBranch>issue-1168-hive-adding-support</frontendBranch>
         <dockerfile.version>1.4.10</dockerfile.version>
     </properties>
 

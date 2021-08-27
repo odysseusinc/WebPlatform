@@ -15,8 +15,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <arachne.version>1.15.0-SNAPSHOT</arachne.version>
+        <arachne.version>1.16.0-SNAPSHOT</arachne.version>
         <netezza.driver.path>src/drivers/README.md</netezza.driver.path>
+        <hive.driver.path>src/drivers/hive</hive.driver.path>
     </properties>
 
     <dependencyManagement>
@@ -388,6 +389,22 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>hive</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-jdbc</artifactId>
+                    <version>3.1.0</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.eclipse.jetty</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 
     <build>
@@ -415,6 +432,7 @@
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                         <NETEZZA_JDBC>${netezza.driver.path}</NETEZZA_JDBC>
+                        <HIVE_JDBC>${hive.driver.path}</HIVE_JDBC>
                     </buildArgs>
                     <skip>${dockerfile.skip}</skip>
                 </configuration>
