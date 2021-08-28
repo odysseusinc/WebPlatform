@@ -7,3 +7,4 @@ COPY target/atlasui.zip atlasui.zip
 RUN rm -f /usr/share/nginx/html/index.html \
     && unzip -qq atlasui.zip -d /usr/share/nginx/html && rm -f atlasui.zip
 COPY config-local.js /usr/share/nginx/html/js
+RUN chmod -R 755 /usr/share/nginx/html/*
